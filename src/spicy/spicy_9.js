@@ -54,8 +54,8 @@ export const multiplyBy = (num1) => {
  * Use the multiplyBy function to create and export a function named
  *   "tenTimes" that multiplies a number by 10.
  */
-export const tenTimes = (num1) => {
-    return multiplyBy(10)(num1);
+export const tenTimes = (param) => {
+    return multiplyBy(10)(param);
 };
 
 
@@ -92,7 +92,14 @@ export const tenTimesFifty = () => {
  *    everyEven([1, 1, 0, 1, 1], x => x === 1)  <--  returns false
  */
 export const everyEven = (arr, test) => {
-
+    for(let i = 0; i<arr.length; i++){
+        if(i%2==0){
+            if(!test(arr[i])){
+                return false;
+            }
+        }
+    }
+    return true;
 };
 
 
@@ -116,7 +123,14 @@ export const everyEven = (arr, test) => {
  *    someEven([0, 0, 0, 0, 0], x => x === 0)  <--  returns true
  */
 export const someEven = (arr, test) => {
-
+    for(let i = 0; i<arr.length; i++){
+        if(i%2==0){
+            if(test(arr[i])){
+                return true;
+            }
+        }
+    }
+    return false;
 };
 
 
